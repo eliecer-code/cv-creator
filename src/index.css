@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gray-50 text-gray-900;
+  }
+}
+
+.cv-page {
+  width: 210mm;
+  min-height: 297mm;
+  background: white;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  padding: 15mm;
+  box-sizing: border-box;
+}
+
+/* Tipografías profesionales para ATS */
+.font-ats-serif {
+  font-family: 'Garamond', 'Times New Roman', Times, serif;
+}
+
+.font-ats-sans {
+  font-family: 'Arial', 'Helvetica', sans-serif;
+}
+
+/* --- CLASES DURANTE LA EXPORTACIÓN DEL PDF --- */
+.pdf-exporting, 
+.pdf-exporting * {
+  /* Quitamos el padding superior e inferior de los contenedores principales
+     porque html2pdf añadirá un margen fijo arriba y abajo en cada página. */
+}
+.pdf-exporting.cv-page {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+.pdf-exporting .remove-y-padding {
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+@media print {
+  body {
+    background: white;
+    margin: 0;
+    padding: 0;
+  }
+  
+  header, .lg\\:w-\\[45\\%\\], .lg\\:w-\\[40\\%\\], .flex\\.lg\\:hidden, button {
+    display: none !important;
+  }
+  
+  #root, .min-h-screen, .flex-1, .cv-preview-wrapper {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    overflow: visible !important;
+    background: white !important;
+  }
+  
+  .cv-page {
+    box-shadow: none;
+    margin: 0;
+    padding: 15mm !important;
+    width: 100%;
+    min-height: 0;
+    page-break-after: auto;
+  }
+}
