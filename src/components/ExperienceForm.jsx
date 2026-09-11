@@ -52,7 +52,7 @@ const ExperienceForm = ({ cvData, addArrayItem, updateArrayItem, removeArrayItem
                 value={exp.location} 
                 onChange={(val) => updateArrayItem('experiences', exp.id, { ...exp, location: val })}
               />
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:col-span-2">
                 <Input 
                   label={t('startDate', lang)} 
                   type="month"
