@@ -9,6 +9,7 @@ import { ProjectsForm, LanguagesForm, CertificationsForm } from './components/Ot
 import SectionManager from './components/SectionManager';
 import TemplateSelector from './components/TemplateSelector';
 import CVPreview from './components/CVPreview';
+import PreviewContainer from './components/PreviewContainer';
 import { generatePDF } from './utils/pdfGenerator';
 import { FileText, Download, Trash2, Layout } from 'lucide-react';
 
@@ -121,11 +122,9 @@ function App() {
         </div>
 
         {/* Preview Column */}
-        <div className={`lg:w-[55%] xl:w-[60%] bg-gray-200 overflow-y-auto p-4 sm:p-8 flex justify-center ${activeTab === 'preview' ? 'block' : 'hidden lg:block'}`} style={{ height: 'calc(100vh - 65px)' }}>
-          <div className="cv-preview-wrapper max-w-full overflow-x-auto pb-8">
-            <div id="cv-preview-content" className="cv-page shrink-0">
-              <CVPreview cvData={cvData} />
-            </div>
+        <div className={`lg:w-[55%] xl:w-[60%] bg-gray-200 overflow-y-auto p-4 sm:p-8 flex justify-center ${activeTab === 'preview' ? 'flex' : 'hidden lg:flex'}`} style={{ height: 'calc(100vh - 65px)' }}>
+          <div className="cv-preview-wrapper max-w-full pb-8 w-full">
+            <PreviewContainer cvData={cvData} />
           </div>
         </div>
 
