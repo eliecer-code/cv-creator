@@ -50,7 +50,7 @@ const EducationForm = ({ cvData, addArrayItem, updateArrayItem, removeArrayItem 
                 value={edu.location} 
                 onChange={(val) => updateArrayItem('education', edu.id, { ...edu, location: val })}
               />
-              <div className="grid grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:col-span-2">
                 <Input 
                   label={t('startDate', lang)} 
                   type="month"
